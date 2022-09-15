@@ -27,3 +27,8 @@ ul {
     background-color: #d86122;
     color: white;
   }
+
+  nav{
+    position: fixed;
+    width: 100%;
+  }
