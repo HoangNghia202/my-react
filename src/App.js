@@ -2,7 +2,7 @@ import {useState} from "react";
 import logo from './logo.svg';
 import Nav from './view/Nav';
 import './App.css';
-
+import Todo from "./view/Todo";
 
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
   const [address, setAddress] = useState("");
   
 const [todos, setTodos] = useState([
-  {id: 1, title: "watching video"},
-  {id: 2, title: "reading book"},
+  {id: 1, title: "watching video", type: "work"},
+  {id: 2, title: "reading book", type: "study"},
 ]);
 
   const updateName = (event) => {
@@ -27,7 +27,7 @@ const [todos, setTodos] = useState([
     }
       
     console.log('clicked'); 
-    let newtodo={id: Math.floor(Math.random()*1000), title: address};
+    let newtodo={id: Math.floor(Math.random()*1000), title: address, type: "study"};
     let todosCopy= [...todos, newtodo];
     setTodos(todosCopy);
     setAddress("");
@@ -41,11 +41,9 @@ const [todos, setTodos] = useState([
         <p>
           hello world with react and {name} 
         </p>
-        <div className="todos-container">
-          {todos.map ((item, index)=>{ return <div key={item.id}> {index+1} { item.title}</div>}
-           
-          )}
-        </div>
+        <Todo todos={todos} title={'All todos'}></Todo>
+        <hr/>
+        <Todo todos={todos.filter(item => item.type==='study') } title={'Todo type study'}></Todo>
         <input type={"text"} value={address} onChange={(event)=>updateName(event)}></input>
         <button onClick={()=> handleClick()}> click me </button>
        
