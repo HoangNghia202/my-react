@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import Nav from "./view/Nav";
 import "./App.css";
@@ -14,6 +14,10 @@ function App() {
     { id: 1, title: "watching video", type: "work" },
     { id: 2, title: "reading book", type: "study" },
   ]);
+
+  useEffect(() => {
+    console.log("useEffect");
+  },[address]);
 
   const updateName = (event) => {
     setAddress(event.target.value);
