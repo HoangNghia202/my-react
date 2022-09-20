@@ -5,6 +5,7 @@ import moment from "moment/moment";
 const Covid = () => {
   const [dataCovid, setDataCovid] = useState([]);
   const[loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
  useEffect(() => {
   setTimeout(() => {
     axios
@@ -19,9 +20,11 @@ const Covid = () => {
         setLoading(false);
       })
       .catch((err) => {
+        setLoading(false);
+        setError(true);
         console.log(err);
       });
-    }, 3000);
+    }, 1000);
     }, []);
 
   return (
@@ -62,7 +65,10 @@ const Covid = () => {
           }
 
           {
-            loading===true && <tr><td colspan='5' style={{'text-align':'center'}}>Loading...</td></tr>
+            loading===true&& <tr><td colspan='5' style={{'text-align':'center'}}>Loading...</td></tr>
+          }
+          {
+            error===true && loading===false &&<tr><td colspan='5' style={{'text-align':'center'}}>Something wrong...</td></tr>
           }
         </tbody>
       </table>
