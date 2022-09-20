@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import Nav from "./view/Nav";
 import "./App.css";
 import Todo from "./view/Todo";
-
+import Covid from "./view/Covid";
 function App() {
   //create state name and function to update state  name
   const [name, setName] = useState("Nghia");
@@ -17,7 +17,7 @@ function App() {
 
   useEffect(() => {
     console.log("useEffect");
-  },[address]);
+  }, [address]);
 
   const updateName = (event) => {
     setAddress(event.target.value);
@@ -40,7 +40,7 @@ function App() {
     setAddress("");
   };
 
-  const handleDelete = (id) => {  
+  const handleDelete = (id) => {
     let todosCopy = [...todos];
     let index = todosCopy.findIndex((item) => item.id === id);
     todosCopy.splice(index, 1);
@@ -54,10 +54,12 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>hello world with react and {name}</p>
+        <Covid></Covid>
         <Todo
-         todos={todos} title={"All todos"}
-         handleDelete={handleDelete}
-         ></Todo>
+          todos={todos}
+          title={"All todos"}
+          handleDelete={handleDelete}
+        ></Todo>
         <hr />
         <Todo
           todos={todos.filter((item) => item.type === "study")}
