@@ -29,7 +29,6 @@ ul {
   }
 
   nav{
-    position: sticky;
+    position: fixed;
     width: 100%;
-    
   }

@@ -2,8 +2,14 @@ import { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import Nav from "./view/Nav";
 import "./App.css";
+import "./view/Nav.css";
 import Todo from "./view/Todo";
 import Covid from "./view/Covid";
+ import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 function App() {
   //create state name and function to update state  name
   const [name, setName] = useState("Nghia");
@@ -49,6 +55,8 @@ function App() {
   };
 
   return (
+    <>
+     
     <div className="App">
       <Nav />
       <header className="App-header">
@@ -60,7 +68,7 @@ function App() {
           title={"All todos"}
           handleDelete={handleDelete}
         ></Todo>
-        <hr />
+    
         <Todo
           todos={todos.filter((item) => item.type === "study")}
           title={"Todo type study"}
@@ -74,6 +82,7 @@ function App() {
         <button onClick={() => handleClick()}> click me </button>
       </header>
     </div>
+    </>
   );
 }
 

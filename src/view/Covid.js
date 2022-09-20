@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment/moment";
+
 const Covid = () => {
   const [dataCovid, setDataCovid] = useState([]);
-
+  const[loading, setLoading] = useState(true);
  useEffect(() => {
+  setTimeout(() => {
     axios
       .get("https://api.covid19api.com/country/vietnam?from=2021-10-01T00%3A00%3A00Z&to=2021-10-20T00%3A00%3A00Z")
       .then((res) => {
@@ -12,13 +14,15 @@ const Covid = () => {
         res.data.map((item)=>{
           item.Date = moment(item.Date).format("DD/MM/YYYY");
           return item;
-        })
-        setDataCovid(res.data);
+        }) 
+        setDataCovid(res.data.reverse());
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+    }, 3000);
+    }, []);
 
   return (
     <div>
@@ -44,7 +48,7 @@ const Covid = () => {
         </thead>
         <tbody>
           {
-            dataCovid && dataCovid.length>0 && dataCovid.map((item, index) => {
+            loading===false && dataCovid && dataCovid.length>0 && dataCovid.map((item, index) => {
               return (
                 <tr key={item.ID}>
                   <td>{item.Confirmed}</td>
@@ -55,6 +59,10 @@ const Covid = () => {
                 </tr>
               );
             })
+          }
+
+          {
+            loading===true && <tr><td colspan='5' style={{'text-align':'center'}}>Loading...</td></tr>
           }
         </tbody>
       </table>
