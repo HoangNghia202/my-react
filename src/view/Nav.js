@@ -1,22 +1,26 @@
-import {useState} from 'react';
+
 import './Nav.css'
+import {
+  NavLink, Link
+} from "react-router-dom";
 const Nav = () => {
   return (
     <nav>
       <ul>
         <li>
-          <a className="active" href="#home">
-            Home
-          </a>
+          <NavLink to="/covid" activeClassName=''>
+            Covid
+          </NavLink>
         </li>
         <li>
-          <a href="#news">News</a>
+        <NavLink to="/todoList"  activeClassName='active' >
+            Todo List
+          </NavLink>
         </li>
         <li>
-          <a href="#contact">Contact</a>
-        </li>
-        <li>
-          <a href="#about">About</a>
+        <NavLink to="/countdown" activeClassName='active' >
+           CountDown
+          </NavLink>
         </li>
       </ul>
     </nav>
