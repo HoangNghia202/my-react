@@ -8,6 +8,7 @@ import CountDown from "./view/CountDown";
 import TodoList from "./view/TodoList";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserDetail from "./view/UserDetail";
+import Blogs from "./view/Blogs";
 function App() {
   return (
     <Router>
@@ -20,6 +21,7 @@ function App() {
             <Route path="/covid"   element={<Covid></Covid>}></Route>
             <Route path="/countdown"   element={<CountDown></CountDown>}></Route>
             <Route path="/users/:id" element={<UserDetail></UserDetail>}></Route>
+            <Route path="/blogs" element={<Blogs></Blogs>}></Route>
           </Routes>
         </header>
       </div> 

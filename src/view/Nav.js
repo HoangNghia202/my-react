@@ -22,6 +22,12 @@ const Nav = () => {
            CountDown
           </NavLink>
         </li>
+
+        <li>
+        <NavLink to="/blogs" activeClassName='active' >
+           Blog Apps
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
