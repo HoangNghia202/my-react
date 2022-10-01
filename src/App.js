@@ -9,6 +9,7 @@ import TodoList from "./view/TodoList";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserDetail from "./view/UserDetail";
 import Blogs from "./view/Blogs";
+import AddBlog from "./view/AddBlog";
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
             <Route path="/countdown"   element={<CountDown></CountDown>}></Route>
             <Route path="/users/:id" element={<UserDetail></UserDetail>}></Route>
             <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+            <Route path="/add-blog" element={<AddBlog></AddBlog>}></Route>
           </Routes>
         </header>
       </div> 
