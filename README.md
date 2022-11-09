@@ -1,10 +1,10 @@
-# React hook 
+# My React 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
 This project is a web-page to create a todo list, get search API from Youtube, count down time, fecth data form public server.
 
 ## `Technology`
-ReactJs (hook).\
+ReactJs.\
 Redux.\
 Boostrap 4.\
 css, scss.\
