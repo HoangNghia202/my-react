@@ -7,8 +7,7 @@ This project is a web-page to create a todo list, get search API from Youtube, c
 ReactJs.\
 Redux.\
 Boostrap 4.\
-css, scss.\
-html
+REST API.
 
 ## `Main features`
 CRUD to do list.\
